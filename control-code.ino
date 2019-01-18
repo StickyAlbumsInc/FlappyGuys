@@ -46,7 +46,7 @@ int irPin = 11;
 
 // Raw ints from the IR remote
 int fanBtns[5] = {16753245,16736925,16769565,16720605,16712445};
-int allOffBtn = 14535; // This button turns off all fans
+int allFansBtn = 14535; // This button turns off all fans
 
 // Set up the receiver
 IRrecv irrecv(irPin);
@@ -87,10 +87,24 @@ void loop() {
 
 // Set fan states based on IR input.
 void toggle_fan_state(int fan) {
-  if (fan == allOffBtn) {
+  // Toggle all fans "off" if one or more is running, or all "on" if
+  // no fans are running.
+  if (fan == allFansBtn) {
+    int current_state = 0;
     for (int i = 0; i < 5; i = i + 1) {
-      fanState[i] = 0;
+      current_state = current_state + control_fan(i);
     }
+
+    if (current_state > 0) {
+      for (int i = 0; i < 5; i = i + 1) {
+        fanState[i] = 0;
+      }
+    } else {
+      for (int i = 0; i < 5; i = i + 1) {
+        fanState[i] = 1;
+      }
+    }
+  // Control fans individually
   } else {  
     // Find the fan gate that corresponds to the button.
     int index = 100; // Default out of range value

@@ -14,6 +14,7 @@ These are the essential parts necessary for building the Flappy Guys array.
 * 18GA solid core wire
 * 30x60in piece of ripstop nylon in a color of your choice (or multiple colors) - [link](https://www.amazon.com/gp/product/B07688SRPS)
 * 24x36in sheet of black foam core - or some other material to construct the base (wood, plastic, metal) - buy this locally
+* A few male-female Dupont jumper wires
 
 Optional Parts
 ----
