@@ -46,3 +46,13 @@ On lines 48 and 49, you'll find two variables:
 
 Once you've updated these variables and safed the file, you can flash `control-code.ino` to your Arduino, overwriting the previous IR read utility code. 
 
+One other important thing to make note of here is the output pins used to control the fan. In the control code, pins are configured as follows:
+
+* Pin 3 -> Fan 1
+* Pin 5 -> Fan 2
+* Pin 6 -> Fan 3
+* Pin 9 -> Fan 4
+* Pin 10 -> Fan 5
+* Pin 11 -> IR Receiver
+
+You can change these if you wish, but for the purposes of this guide, I'll assume you haven't. 
